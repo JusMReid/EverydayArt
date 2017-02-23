@@ -1,0 +1,28 @@
+HAve the text fields adjacent to each other so it spells out a sentence.
+	They'll just produce output when button is clicked.
+	
+	___________GIT_________
+	commit = change
+	push = "upload"/save
+	
+	UNless you stage a file for commit, it wont commit
+	
+	Stage a file for commiting using the add command
+	
+	git add + [filename]
+	
+	git status (Shows you which files you are working on that are not staged)
+	
+	git add -m (detailed commit message)
+	
+	git log (Tells you what commits youve made)
+	
+	git dif (Tells you what changes were made to a file)
+	
+	git init (Creates an empty repository at current location) 
+	
+	git clone (Clones an empty repository at current location)
+	
+	
+	How to link JAVA to HTML
+	HOW to link a Java Login Page to HTML
