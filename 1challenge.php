@@ -9,19 +9,18 @@
 	</head>
 <body>
 <header>
-			<h1>EveryDay Art <sup> &trade;</sup></h1>
-			<div id="logIn">
-				<a href="logIn.html" target="_blank" 
-					title="Log-In">Log-In</button>
-				</a>|
-				<a href="register.html" target="_blank" 
-					title="Join EveryDay Art &trade;">
-				Join</a>
-			</div>
-		</header>
+	<h1>EveryDay Art <sup> &trade;</sup></h1>
+	<div id="logIn">
+		<a href="logIn.html" target="_blank" 
+			title="Log-In">Log-In</button>
+		</a>|
+		<a href="register.html" target="_blank" 
+			title="Join EveryDay Art &trade;">
+		Join</a>
+	</div>
+</header>
 <h2><center>Your creation will be: 
 <br/>
-<div style="z-index:1;">
 <h1><center>
 <?php
 $servername = "localhost";
@@ -36,6 +35,7 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
 	die("Connection failed: " . $conn->connect_error);
 }
+
 
 //fetch adj
 $var1 = rand(0,9);
@@ -58,21 +58,39 @@ $query->execute();
 $vresult = $query->get_result();
 $rrr = $vresult->fetch_array(MYSQLI_ASSOC);
 
+//fetch challenge
+$var4 = rand(0,4);
+$query = $conn->prepare("Select challenge from challenge1 where c1_id = '$var4'");
+$query->execute();
+$query->bind_result($challenge);
+$query->fetch();
+$query->close();
+
+//create challenge and echo across screen
+// $challenge = isset($rrrr['$cresult']) ? $rrrr['$cresult'] : $;
 
 //create result and echo across screen
 $result = " " . $r['aresult'] . " " . $rr['nresult'] . " " . $rrr['vresult'];
 echo $result;
-session_start();
-$_SESSION['result'] = "$result";
+
+
+?>
+</h1>
+</br>
+<h2> Your challenge will be: </h2>
+<h3><center>
+<?php
+
+
+echo $challenge;
 
 $conn->close();
 ?>
-</h1>
-<a href="includeChallenge.php" target="_blank" title="Select Idea"><br/>
+</h3>
+
+<a href="RandomFunction.php" target="_blank" title="Select Idea"><br/>
 			Create this idea &#10004 </a>
-<a onClick='window.location.reload(true)' target="_blank" title="Re-generate Idea"><br/>
-			Don't like your outcome? Click to re-roll options.</a>
-			</div>
+<a href="1challenge.php" target="_blank" title="Re-generate Idea"><br/>
+			Don't like your outcome? Click here to re-roll your options.</a>
 </body>
 </html>
-

@@ -1,5 +1,5 @@
 * {
-  border: 1px solid black;
+  border: 0px solid black;
   margin:0;
   padding:0;
 }
@@ -8,13 +8,15 @@ html{
 	height:100%;
 }
 body{
-	background-image:-webkit-radial-gradient(yellow 20%, red 50%, green);
+	background-image:-webkit-radial-gradient(yellow 25%, red 70%, black);
 	font-family:papyrus;
 	/background-color:silver;
 	min-height:100%;
 }
 
 header{
+	color:white;
+	border: 1px solid white;
 	background-color:#;
 	border-radius:8px;
 }
@@ -46,8 +48,8 @@ fieldset{
 	background-color:red;
 	color:yellow;
 	border-radius:50%;
-	width:250px;
-	padding:40px;
+	width:300px;
+	padding:30px;
 }
 
 #createButton:hover{

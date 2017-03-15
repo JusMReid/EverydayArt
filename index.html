@@ -20,37 +20,31 @@
 				Join</a>
 			</div>
 		</header>
-
-			<div id="createMenu">
-				Noun:
-				<input list="nouns" name="nouns" title="Select a noun"/> 
-				<datalist id="nouns">
-				<option value="Landscape"/>
-				<option value="Food"/>
-				<option value="Cars"/>
-				<option value="Person"/>
+			<div id="createMenu"><center>
+			<form action="genreFunction.php" method= "post">
+				Idea Generator
+				</br></br></br></br></br> 
+				Opitonal Genre Select:
+				<input list="Genre" name="Genre" title="Select a specific genre"/>  
+				<datalist id="Genre">
+				<option value="Fantasy"/>
+				<option value="Human"/>
+				<option value="Nature"/>
+				<option value="Medieval"/>
 				</datalist>
-				
-				Adjective:
-				<input list="adjectives" name="adjectives" title="Select an adjectives"/> 
-				<datalist id="adjectives">
-				<option value="Old"/>
-				<option value="Big"/>
-				<option value="Broken"/>
-				<option value="Beautiful"/>
-				</datalist>
-				
-				Verbs:
-				<input list="verbs" name="verbs" title="Select a verb"/> 
-				<datalist id="verbs">
-				<option value="Moving"/>
-				<option value="Touching"/>
-				<option value="Waving"/>
-				<option value="Reflecting"/>
-				</datalist>
-				<br/>
-				
-				<button id="createButton">Create</button>
+				<button id="" onClick="location.href='genreFunction.php'">&#10004 </button>
+				<br/></center>
+				</form> 
+				<form action="RandomFunction.php" method= "post"> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+				<button id="createButton" onClick="location.href='RandomFunction.php'">Create</button>
+				</br></br><center>
+				<a href="1or2challenge.html" target="_blank"
+					title="Add challenges">
+				Add personal challenges & handicaps</a></br>
+				<a href="updatedb.php" target="_blank" 
+					title="Add your own">
+				Or use your own words!</a>
+				</center></form>
 			</div>	
 	</body>
 </html>
