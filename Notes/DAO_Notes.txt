@@ -1,0 +1,78 @@
+class CategoryDAO{
+  public CategoryDTO[] getAllCategories(){
+    conn = getConn()
+    resultSet rs= conn.createStatement("Select
+      * from Category;").execute();
+
+    ArrayList <CategoryDTO></CategoryDTO> catDTOs = new ArrayList <CategoryDTO>()
+
+    for(rows:rs){
+    CategoryDTO CDTO = new CategoryDTO();
+    CDTO.detID(rows["cat.ID"]);
+    CDTO.setName(rows["cat.Name"]);
+    catDTOs.add(CDTO);
+    }
+  }
+}
+*******************TO GET CATEGORIES BY NAME & ID***********************
+class CategoryDAO{
+  public CategoryDTO[] getAllCategoriesByNameID(){
+    conn = getConn()
+    resultSet rs= conn.createStatement("Select
+      id, name from Category;").execute();
+
+    ArrayList <CategoryDTO></CategoryDTO> catDTOs = new ArrayList <CategoryDTO>()
+
+    for(rows:rs){
+    CategoryDTO CDTO = new CategoryDTO();
+    CDTO.detID(rows["cat.ID"]);
+    CDTO.setName(rows["cat.Name"]);
+    catDTOs.add(CDTO);
+    }
+  }
+}
+**************************************************************************
+class ItemDAO{
+  public ItemDTO[] getAllItems(){
+    conn = getCon()
+
+    resultSet rs = conn.createStatement("Select
+      Item.ID, Item.Name,Item.Price, Category.Cat.ID,
+      Category.Name from Category,Cat_Item, Item
+      where Item.Item.ID = Cat_Item.Item.ID and
+        Cat.Cat.ID = Cat_Item.Cat.ID;").execute();
+
+      ArrayList <ItemDTO> itemDTOs = new ArrayList <ItemDTO>();
+
+      for(row:rs){
+        itemDTO itemDTO = new ItemDTO();
+        CategoryDTO catDTO = new CategoryDTO();
+
+        itemDTO.setID(rows["Item.Item.id"]);
+        itemDTO.setName(rows["Item.Item.id"]);
+        itemDTO.setPrice(rows["Item.Item.id"]);
+
+        catDTO.setID(rows["Cat.Cat.id"]);
+        catDTO.setName(rows["Cat.Cat.id"]);
+
+        itemDTO.setCatDTO(CatDTO);
+        itemDTOs.add(itemDTO);
+        }
+      }
+      return ItemDTOs;
+    }
+  }
+}
+
+When retrieving multiple info from multiple tables
+you'll have to use a mapper while retrieving each Item
+you can get the corresponding category and not all the categories.
+
+class ItemDTO{
+  String name;
+  int id;
+  float price;
+  CategoryDTO catDTO;
+
+  //SETTERS & GETTERS FOR ALL OF THE ABOVE
+}
