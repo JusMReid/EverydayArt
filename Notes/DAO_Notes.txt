@@ -76,3 +76,11 @@ class ItemDTO{
 
   //SETTERS & GETTERS FOR ALL OF THE ABOVE
 }
+
+class CategoryDTO{
+  String category;
+  int ID;
+  ItemDTO[] itemDTO;
+
+  //SETTERS & GETTERS FOR ALL OF THE ABOVE
+}
