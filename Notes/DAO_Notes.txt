@@ -84,3 +84,36 @@ class CategoryDTO{
 
   //SETTERS & GETTERS FOR ALL OF THE ABOVE
 }
+
+class itemDAO{
+  public boolean updateItem(itemDTO itemDTO){
+    connection conn = ConnectionManager.getCOnnection();
+
+    preparedStatement ps = conn.PrepareStatement("Update Item set name  = ?
+                              and price = ? where id = ?");
+    ps.setString(1, itemDTO.getName());
+    ps.setFloat(2, itemDTO.getPrice());
+    ps.setInt(3, itemDTO.getId());
+
+    boolean status = ps.execute();
+
+    return status;
+    //Write a method that updates all columns whether their values change or not
+  }
+}
+
+class categoryDAO{
+  public boolean updateCategory(categoryDTO categoryDTO){
+    connection conn = ConnectionManager.getConnection();
+
+    preparedStatement ps = conn.PrepareStatement("Update Category set category=?
+                                where id=?");
+
+    ps.setString(1,categoryDTO.getCategory());
+    ps.setInt(2,categoryDTO.getID());
+
+    boolean status = ps.execute();
+
+    return status;
+  }
+}
