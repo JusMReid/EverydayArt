@@ -61,7 +61,7 @@ public class LoginDAO {
 
 		$conn = connectToDB();
 
-		UserDTO $idDTO =  new UserDTO();
+		$idDTO =  new UserDTO();
 		$conn->query("SELECT userId FROM users
 		WHERE userName = $udto->getName();");
 		if (!$conn) 
