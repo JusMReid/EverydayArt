@@ -1,0 +1,161 @@
+
+html{
+	height:100%;
+}
+body{
+	background-image:-webkit-linear-gradient(cyan 25%, white 70%, 
+green);
+	margin:right;
+	padding:auto;
+}
+
+header{
+	background-color:#;
+	border: 1px solid black;
+	border-radius:8px;
+}
+
+h1{
+	text-align:left;
+}
+
+.toppage {
+    height: 92px;
+    background-color:white;
+    border: 1px white;
+    border-radius:8px;
+    opacity: 99;
+}
+.leftpage {
+    width: 178px;
+    height:100%; 
+    background-color:white;
+    border: 1px white;
+    border-radius:8px;
+    opacity: 99;	
+    float:left;
+}
+.mainpage {
+  margin-left:178px;
+  background-color:white;
+    border: 1px white;
+    border-radius:0px;
+    opacity: 0.9;
+ }
+
+.left{
+	position: relative;
+	width: 200px;
+	heigh: 200px;
+	margin-left:25px;
+	margin-right:25px;
+	margin-bottom:10px;
+	float: left;
+	
+	
+}
+.right{
+	position: relative;
+	width: 200px;
+	heigh: 200px;
+	margin-left:25px;
+	margin-right:25px;
+	margin-bottom:10px;
+	float: right;
+	
+	
+}
+
+.imgdescription {
+	position: absolute;
+	top: 0;
+  	bottom: 0;
+  	left: 0;
+  	right: 0;
+	text-align:center;
+  	background: rgba(222, 222, 222, 0.72);
+  	color: #;
+  	visibility: hidden;
+  	opacity: 0;
+}
+
+.left:hover .imgdescription {
+	visibility: visible;
+	opacity: 1;
+}
+.right:hover .imgdescription {
+	visibility: visible;
+	opacity: 1;
+}
+
+.container {
+	border: 2px solid black;
+	background-color: orange;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.border {
+	background-color:#;
+	border: 1px solid black;
+	border-radius:8px;
+}
+
+
+
+
+#logIn{
+	color:green;
+	text-align:right;
+}
+
+fieldset{
+	display:inline-block;
+	margin-right:5px;
+}
+
+body{
+	background-image:#;
+	background-attachment:fixed;
+	font-family:papyrus;
+	/background-color:silver;
+}
+
+#createMenu{
+	margin:auto;
+	margin-top:75px;
+	width: 100px;
+}
+
+
+
+
+
+
+
+
+#createButton{
+	margin-left:-50px;
+	font-family:"papyrus","goudy stout",Copperplate;
+	font-size: 30px;
+	background-color:red;
+	color:yellow;
+	border-radius:15px;
+	width:200px;
+	padding:10px;
+}
+
+#divider{
+	width:5px;
+	height:auto;
+	display:inline-block;
+}
+
+
+
+#createButton:hover{
+	background-color: yellow;
+	color:red;
+}

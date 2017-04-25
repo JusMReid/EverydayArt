@@ -5,11 +5,11 @@
 		<meta name="description" content="Result Page">
 		<meta name="author" content="Justin Reid">
 		<title>EveryDay Art| Result</title>
-		<link rel="stylesheet" type="text/css" href="EACSS.css"/>
+		<link rel="stylesheet" type="text/css" href="EACSS5.css"/>
 	</head>
 <body>
-<header>
-			<h1>EveryDay Art <sup> &trade;</sup></h1>
+		<header>
+			<a onClick="location.href='index.html'"><h1>EveryDay Art<sup> &trade;</sup></h1></a>
 			<div id="logIn">
 				<a href="logIn.html" target="_blank" 
 					title="Log-In">Log-In</button>
@@ -17,6 +17,9 @@
 				<a href="register.html" target="_blank" 
 					title="Join EveryDay Art &trade;">
 				Join</a>
+				<form action = "searchResult.php" method = "submit">
+				<input type="text" name="keyword" placeholder= "Search for...">
+				<button id="" onClick="location.href='searchResult.php'">Search</button></form>
 			</div>
 		</header>
 <h2><center>Your creation will be: 
@@ -27,27 +30,6 @@
 session_start();
 echo $_SESSION['result'];
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "everydayart";
-
-//connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-//check connection
-if ($conn->connect_error) {
-	die("Connection failed: " . $conn->connect_error);
-}
-
-
-//fetch challenge
-$var4 = rand(0,4);
-$query = $conn->prepare("Select challenge from challenge1 where c1_id = '$var4'");
-$query->execute();
-$query->bind_result($challenge);
-$query->fetch();
-$query->close();
 
 ?>
 </h1>
@@ -55,10 +37,11 @@ $query->close();
 <h2> Your challenge will be: </h2>
 <h3><center>
 <?php
-
-echo $challenge;
-
-$conn->close();
+include("Challengefx.php");
+?>
+<?php
+$challenge = new Challengefx();
+$challenge->challenge1();
 ?>
 </h3>
 <h2>

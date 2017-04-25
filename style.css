@@ -1,0 +1,95 @@
+* { 
+	
+margin: 0; 
+	
+padding: 0; 
+}
+
+
+body { 
+	
+font-size: 62.5%; 
+	
+font-family: Georgia, serif;
+	
+background: url(background/page-bg.jpg) top center no-repeat #c2f0ef;
+
+height:100%;
+}
+
+
+h6 {
+	
+font-size: 1.4em;
+	
+margin-bottom: 15px;
+float: right;
+
+}
+
+
+a { color: black; }
+
+
+label, li {
+	
+display: block;
+	padding: 5px;
+	
+font-size: 1.4em;
+	
+color: solid black;
+
+}
+
+
+fieldset {
+	
+margin: 115px auto;
+	
+width: 400px;
+	
+padding: 8px 15px 15px 15px;
+	
+border: 1px solid black;
+	
+display: block; /* IE 7 Requires This */
+	
+}
+	
+legend {
+		
+padding: 4px 6px 4px 6px;
+		
+border: 1px solid black;
+		
+font-size: 2.0em;
+		
+color: solid black;
+		
+font-style: italic;
+	
+}
+	
+
+ul { list-style: none; margin-bottom: 15px;}
+
+
+.results-bar {
+	
+padding: 10px;
+	
+color: black;
+	
+background: url(background/result-bar-bg.png) left center;
+	
+white-space: nowrap;
+
+}
+
+
+span.total-votes {
+	
+font-size: 2.6em;
+
+}

@@ -5,11 +5,11 @@
 		<meta name="description" content="Result Page">
 		<meta name="author" content="Justin Reid">
 		<title>EveryDay Art| Result</title>
-		<link rel="stylesheet" type="text/css" href="EACSS.css"/>
+		<link rel="stylesheet" type="text/css" href="EACSS5.css"/>
 	</head>
 <body>
-<header>
-			<h1>EveryDay Art <sup> &trade;</sup></h1>
+		<header>
+			<a onClick="location.href='index.html'"><h1>EveryDay Art<sup> &trade;</sup></h1></a>
 			<div id="logIn">
 				<a href="logIn.html" target="_blank" 
 					title="Log-In">Log-In</button>
@@ -17,6 +17,9 @@
 				<a href="register.html" target="_blank" 
 					title="Join EveryDay Art &trade;">
 				Join</a>
+				<form action = "searchResult.php" method = "submit">
+				<input type="text" name="keyword" placeholder= "Search for...">
+				<button id="" onClick="location.href='searchResult.php'">Search</button></form>
 			</div>
 		</header>
 <h2><center>Your creation will be: 
