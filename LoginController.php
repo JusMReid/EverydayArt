@@ -20,7 +20,7 @@ public class LoginController
 			if($ldao->authenticateUser($udto))
 			{
 				$_SESSION["user"] = $user; // Initializing Session
-				echo "Login Successful welcome $user!";
+				$_SESSION["isloggedin"] = True;
 				return True;
 			}	
 		}	
