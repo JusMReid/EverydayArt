@@ -117,3 +117,34 @@ class categoryDAO{
     return status;
   }
 }
+
+/////////////////-----------------------------------------------------------
+class CategoryDTO{
+  int id;
+  String name;
+  List<ItemDTO> items = null;
+
+  int getID(){
+    return id;
+  }
+
+  void setID(int id){
+    this.id = id;
+  }
+
+  String getName(){
+    return name;
+  }
+
+  void setName(){
+    this.name = name;
+  }
+
+  List <ItemDTO> getItems(){
+    if(items == null  || new_Data_Available == true){
+      items = new ItemDAO().getItemsByCategory(this);
+
+      return items;
+    }
+}
+}

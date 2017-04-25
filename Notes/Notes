@@ -1,0 +1,91 @@
+An abstract class is good for setting up base behaviors for a set of classes
+
+Any class extending an abstract class has to implements its methods
+  Anyone extending the abstracting class knows that generic methods are
+  available to them
+
+Runnable interface
+  When you do multithreading in JAVA you can extend from run class or you can
+  implement runnable class
+
+public myThread extends Thread(){
+  public void run(){}
+}
+
+public myThread implements Runnable{
+  public void run(){
+  }
+}
+^^^^^With this method you can extend a class if need be^^^^^^
+
+Class User{
+  public static User instance = null;
+
+  private User(){
+  }
+
+  public s
+}
+
+FACTORY METHOD PATTERN
+Lets you create an instance of the class without having to call the instructor
+
+  public User implements UserBehavior(){
+    protected User(){
+    }
+
+    public String yell(){
+    return "YELL";
+    }
+  }
+
+  public interface UserBehavior{
+  public String yell();
+  }
+
+  public Manager(){
+    //Manager class that manages the user
+    public UserBehavior getUser(){
+      UserBehavior ub = new User();
+
+      return ub;
+    }
+  }
+
+  The outside world would use:
+    UserBehavior ub = new Manager().getUser();
+
+
+SINGLETON PATTERN
+FACTORY PATTERN
+BUILDER PATTERN
+PROTOTYPE PATTERN
+
+Zombie{
+  Zombie(){
+    texture = loadTexture();
+  }
+
+  public Zombie clone(){
+    Zombie cloned = new Zombie();
+    cloned.setTexture(this.texture);
+    return cloned;
+  }
+
+  ZombieCOllection{
+    private int typeACount = 0;
+    private int typeBCount = 0;
+    private int typeCCount = 0;
+
+    public ZombieCollection addClone(){
+    //random selection of type
+    if(typeToCreate == 'A'){
+      if(typeACount > 0){
+        add(typeAZombie[0].clone());
+      }else{
+        add(new Zombie('A'));
+      }
+    }
+    }
+  }
+}
