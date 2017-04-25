@@ -13,7 +13,6 @@ public class LoginDAO {
 		$result = $conn->query($query) or die($conn->error.__LINE__);
 		if (!$result || mysqli_num_rows($result) <= 0)
 		{
-			echo "Login Error";
 			return False;
 		}
 		else 
@@ -30,11 +29,11 @@ public class LoginDAO {
 		VALUES ($udto->getUserName(), $udto->getPassword())";
 		if ($conn->query($query) == TRUE) 
 		{
-			echo "New Record Created";
+			return True;
 		}
 		else
 		{
-			echo "Error: " . $conn . "<br>" . $conn->error;
+			return False;
 		}
 
 		$conn->close();
@@ -47,11 +46,11 @@ public class LoginDAO {
 		WHERE userId = $this->getUserId($udto)->getId()";
 		if ($conn->query($conn) == TRUE) 
 		{
-			echo "Record Deleted";
+			return True;
 		}
 		else
 		{
-			echo "Error: " . $conn . "<br>" . $conn->error;
+			return False;
 		}
 
 		$conn->close();
@@ -66,9 +65,9 @@ public class LoginDAO {
 		WHERE userName = $udto->getName();");
 		if (!$conn) 
 		{
-    		echo 'Could not run query: ' . mysqli_error();
-    		exit;
-		}
+    		   return False;
+		}	
+    		
 		$row = mysqli_fetch_row($conn);
 		$idDTO->setID($row[0])
 		return $idDTO;
@@ -104,11 +103,11 @@ public class LoginDAO {
 
 		if($conn->query($conn) == TRUE)
 		{
-			echo "New Record Created";
+			return True;
 		}
 		else
 		{
-			echo "Error: " . $sql . "<br>" . $this->getDb()->error;
+			return False;
 		}
 
 		
@@ -124,7 +123,7 @@ public class LoginDAO {
 		{
 			die("Connection Failed: " . $db->connect_error);
 		}
-		echo "Connection Success";
+		
 	}
 	
 }
