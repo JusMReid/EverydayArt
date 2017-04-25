@@ -7,8 +7,8 @@ public class LoginController
 	function login($user,$pass)
 	{
 		session_start();
-		loginDAO $ldao = new loginDAO();
-		loginDTO $udto = new userDTO($user, $pass);
+		$ldao = new loginDAO();
+		$udto = new userDTO($user, $pass);
 		
 		if(empty($_POST["username"]) || empty($_POST["password"]))
 		{
@@ -35,7 +35,7 @@ public class LoginController
 	
 }
 
-LoginController $log = new LoginController();
+$log = new LoginController();
 if($log->login('username', 'password'))
 {
 	header("Location: Index.html");
