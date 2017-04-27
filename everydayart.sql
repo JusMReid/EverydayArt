@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 07, 2017 at 12:56 AM
+-- Generation Time: Apr 25, 2017 at 05:23 AM
 -- Server version: 5.7.14
 -- PHP Version: 5.6.25
 
@@ -75,10 +75,9 @@ CREATE TABLE `adjgenre` (
 --
 
 INSERT INTO `adjgenre` (`adj_id`, `aresult`) VALUES
-(0, 'A young'),
-(1, 'A tough'),
-(2, 'An obese'),
-(3, 'A muscular');
+(0, 'A goblin'),
+(1, 'A chained down'),
+(2, 'A cursed and bound');
 
 -- --------------------------------------------------------
 
@@ -123,6 +122,38 @@ INSERT INTO `challenge2` (`c2_id`, `challenge`) VALUES
 (2, 'Create pixel art.'),
 (3, 'In less than 10 minutes.'),
 (4, 'Without pre-sketching.');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ideapoll`
+--
+
+CREATE TABLE `ideapoll` (
+  `id` int(3) NOT NULL,
+  `question` varchar(200) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `ideapoll`
+--
+
+INSERT INTO `ideapoll` (`id`, `question`) VALUES
+(1, '3');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `images`
+--
+
+CREATE TABLE `images` (
+  `id` int(11) NOT NULL,
+  `img_title` varchar(255) DEFAULT NULL,
+  `img_desc` varchar(255) DEFAULT NULL,
+  `img_filename` varchar(255) DEFAULT NULL,
+  `likes` int(255) DEFAULT '0'
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -179,10 +210,67 @@ CREATE TABLE `noungenre` (
 --
 
 INSERT INTO `noungenre` (`noun_id`, `nresult`) VALUES
-(0, 'helpless queen'),
-(1, 'underground miner'),
-(2, 'business executive'),
-(3, 'president');
+(0, 'archer'),
+(1, 'wizard'),
+(2, 'dragon'),
+(3, 'knight'),
+(4, 'mermaid'),
+(5, 'man with wings');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `poll`
+--
+
+CREATE TABLE `poll` (
+  `id` int(3) NOT NULL,
+  `question` varchar(200) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `poll`
+--
+
+INSERT INTO `poll` (`id`, `question`) VALUES
+(1, '3'),
+(2, '1'),
+(3, '5'),
+(4, '4'),
+(5, '3'),
+(6, '2'),
+(7, '4'),
+(8, '5'),
+(9, '5'),
+(10, '1'),
+(11, '4');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user`
+--
+
+CREATE TABLE `user` (
+  `userId` int(255) NOT NULL,
+  `userName` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `address` varchar(255) NOT NULL,
+  `phone` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `rank` varchar(255) NOT NULL,
+  `totalPoints` int(255) NOT NULL,
+  `currentPoints` int(255) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`userId`, `userName`, `password`, `name`, `address`, `phone`, `email`, `rank`, `totalPoints`, `currentPoints`) VALUES
+(1, 'DummyUser', 'password', 'John Smith', '66 Hello World Lane', '123-456-7890', 'DummyEmail.email.com', 'Newcomer', 1, 1),
+(2, 'DumbUser', 'notagoodpassword', 'George Bugers', '45 Residential Street', '777-777-1234', 'GBadUSer@gmail.com', 'Novice', 5, 5);
 
 -- --------------------------------------------------------
 
@@ -239,12 +327,7 @@ CREATE TABLE `verbgenre` (
 --
 
 INSERT INTO `verbgenre` (`verb_id`, `vresult`) VALUES
-(0, 'struggles to get his morning coffee'),
-(1, 'obliterates crowd in line waiting for black friday deals'),
-(2, 'soothes a pack of lions with their saxophone playing'),
-(3, 'dropping the hottest mixtape'),
-(4, 'fights with bigger version of themselves over a mate'),
-(5, 'hacking into the United States government');
+(0, 'saving the wrong princess');
 
 --
 -- Indexes for dumped tables
@@ -263,6 +346,18 @@ ALTER TABLE `adjblank`
   ADD PRIMARY KEY (`adj_id`);
 
 --
+-- Indexes for table `ideapoll`
+--
+ALTER TABLE `ideapoll`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `images`
+--
+ALTER TABLE `images`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `noun`
 --
 ALTER TABLE `noun`
@@ -273,6 +368,18 @@ ALTER TABLE `noun`
 --
 ALTER TABLE `nounblank`
   ADD PRIMARY KEY (`noun_id`);
+
+--
+-- Indexes for table `poll`
+--
+ALTER TABLE `poll`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`userId`);
 
 --
 -- Indexes for table `verb`
@@ -286,6 +393,31 @@ ALTER TABLE `verb`
 ALTER TABLE `verbblank`
   ADD PRIMARY KEY (`verb_id`);
 
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `ideapoll`
+--
+ALTER TABLE `ideapoll`
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `images`
+--
+ALTER TABLE `images`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `poll`
+--
+ALTER TABLE `poll`
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+--
+-- AUTO_INCREMENT for table `user`
+--
+ALTER TABLE `user`
+  MODIFY `userId` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
