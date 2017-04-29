@@ -1,7 +1,6 @@
-
 <?php 
 
-public class UserDTO {
+class UserDTO {
 	protected $userId;
 	protected $userName;
 	protected $password;
@@ -14,15 +13,15 @@ public class UserDTO {
     protected $currentPoints;
     protected $friends = array();
 
-    public function __construct($id, $userName, $password)
+	public function __construct($id, $userName, $password, $name, $address, $phone, $email)
     {
         $this->id = $id;
         $this->userName = $userName;
         $this->password = $password;
-        $this->name = NULL;
-        $this->address = NULL;
-        $this->phone = NULL;
-        $this->email = NULL;
+        $this->name = $name;
+        $this->address = $address;
+        $this->phone = $phone;
+        $this->email = $email;
         $this->rank = NULL;
         $this->totalPoints = NULL;
         $this->currentPoints = NULL;
@@ -46,7 +45,7 @@ public class UserDTO {
     
     public function getUserName() 
     {
-        return $userName->userName;
+        return $this->userName;
     }
 
     public function setPassword($password) 
@@ -95,7 +94,7 @@ public class UserDTO {
 
     public function get_email()
     {
-        return $this->email
+        return $this->email;
     }
     public function setRank($rank)
     {

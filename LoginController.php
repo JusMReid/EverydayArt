@@ -1,29 +1,24 @@
-
-
 <?php
 
-public class LoginController
+class LoginController
 {
-	function login($user,$pass)
+	public function login($user,$pass)
 	{
+		$this->$user = $user;
+		$this->$pass = $pass;
 		session_start();
-		$ldao = new loginDAO();
-		$udto = new userDTO($user, $pass);
+		include('LoginDAO.php');
+		include('UserDTO.php');
+		$ldao = new LoginDAO();
+		$udto = new UserDTO(null, $this->$user, $this->$pass,null,null,null,null);
 		
-		if(empty($_POST["username"]) || empty($_POST["password"]))
+		if($ldao->authenticateUser($udto))
 		{
-			echo "Enter "
-			return False;
+			$_SESSION["user"] = $this->$user; // Initializing Session
+			$_SESSION["isloggedin"] = True;
+			return True;
 		}
-		else
-		{
-			if($ldao->authenticateUser($udto))
-			{
-				$_SESSION["user"] = $user; // Initializing Session
-				$_SESSION["isloggedin"] = True;
-				return True;
-			}	
-		}	
+		return False; 
 	}
 	function logout()
 	{
@@ -36,7 +31,13 @@ public class LoginController
 }
 
 $log = new LoginController();
-if($log->login('username', 'password'))
+
+elseif($log->login($_POST['username'], $_POST['password']))
 {
-	header("Location: Index.html");
+	header("Location: index.html");
+	
 }
+else{
+	header("Location: renderLogin.php");
+}
+?>

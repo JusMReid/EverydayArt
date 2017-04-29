@@ -16,15 +16,17 @@ class LoginPage {
 			</head>
 
 			<body id="logInBody">
-				<form action="logIn.php">
+				<form action="LoginController.php" method=post>
 				<fieldset>
 					<legend>Log-In</legend>
 					Username:
-					<input type="text" name="username" placeholder="Username" autofocus=on><br/>
+					<input type="text" name="username" placeholder="Username"
+						title="Enter your Username" autofocus=on required><br/>
 					Password:
-					<input type="password" name="password" placeholder="Password"><br/>
+					<input type="password" name="password" placeholder="Password"
+						title="Enter your password" required><br/>
 					<input type="submit" value="Log In">
-					<a href="register.html" target="_blank" title="Create Account"><br/>
+					<a href="register.php" target="_blank" title="Create Account"><br/>
 					Not a member? Click here to join</a>
 				</fieldset>
 				</form>

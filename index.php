@@ -1,4 +1,8 @@
-
+<?php 
+class IndexPage{
+	public function renderPage(){
+		echo<<<EOT
+		
 <html lang="en US">
 	<head>
 	<meta charset="UTF-8"/>
@@ -31,3 +35,9 @@
 	</div>
 	</body>
 	</html>
+EOT;
+	}
+}
+$ip = new IndexPage();
+$ip->renderPage();
+	
