@@ -49,7 +49,7 @@ class RegisterPage {
 				<input type="text" name="address" placeholder=" address "
 					title ="Enter Address" required><br/>
 				Phone:
-				<input type="tel" name="phone" placeholder=" phone "
+				<input type="test" name="phone" placeholder=" phone "
 					title="Enter phone number" required><br/>
 				Email:
 				<input type="email" name="email" placeholder=" JaneDoe@example.com"

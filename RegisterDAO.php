@@ -38,13 +38,43 @@ class RegisterDAO {
 	public function addUser(UserDTO $udto){
 		$conn = $this->connectToDb();
 		
-		$query = "INSERT INTO user".
-		//('userId','userName','password','name','address','phone','email','rank','totalPoints','CurrentPoints')
-		"VALUES (NULL,$udto->getUserName(), $udto->getPassword(), $udto->getName(),".
-		"$udto->get_address(), $udto->get_phone(), $udto->get_email(), $udto->get_rank(),".
-		"$udto->getTotal(), $udto->getCurrent)";
+		$user = $udto->getUserName();
+		$pass = $udto->getPassword();
+		$name = $udto->get_name();
+		$address = $udto->get_address();
+		$phone = $udto->get_phone();
+		$email = $udto->get_email();
+		$rank = $udto->getRank();
+		$totalPoints = $udto->getTotal();
+		$currentPoints = $udto->getCurrent();
 		
-		if ($conn->query($query) == TRUE){
+		
+		$query = "INSERT
+INTO
+  `user`(
+    `userName`,
+    `password`,
+    `name`,
+    `address`,
+    `phone`,
+    `email`,
+    `rank`,
+    `totalPoints`,
+    `currentPoints`
+  )
+VALUES(
+  $user,
+  $pass,
+  $name,
+  $address,
+  $phone,
+  $email,
+  $rank,
+  $totalPoints,
+  $currentPoints,
+)";
+		
+		if (mysqli_query($conn,$query)){
 			return True;
 		}
 		else{
