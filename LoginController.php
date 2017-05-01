@@ -32,7 +32,7 @@ class LoginController
 
 $log = new LoginController();
 
-elseif($log->login($_POST['username'], $_POST['password']))
+if($log->login($_POST['username'], $_POST['password']))
 {
 	header("Location: index.html");
 	

@@ -26,23 +26,19 @@ class LoginDAO {
 
 		#$query = "SELECT `userName` , `password` FROM `user`
 		#WHERE `userName` =  '$name` AND `password` = `$pas`";
+		if($conn->connect_errno){
+			die("ERROR:" . $conn->connect_error);
+		}
 		$query = "SELECT userName , password FROM user WHERE userName = '$name'
 		AND password = '$pas'";
-		
-		$result = $conn->query($query) or die($conn->error.__LINE__);
-		if (mysqli_connect_error())
-		{
-			return False;
-		}
-		else 
-		{
-			if (!$result || mysqli_num_rows($result) <= 0)
-		{
-			return False;
-		}
-			return True;
-		}	
+		$result = $conn->query($query);
 		$conn->close();
+		if(!$result || $result->num_rows <= 0){
+			return false;
+		}
+		else{
+			return true;
+		}
 	}
 	public function insertLoginInfo(UserDTO $udto)
 	{

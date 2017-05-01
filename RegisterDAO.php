@@ -1,16 +1,14 @@
 <?php
 class RegisterDAO {
 	
-	private function connectToDb()
-	{
-		$connection = mysqli_connect("localhost", "root", "", "everydayart");
-		if (mysqli_connect_error())
-		{
-			die("Connection Failed: " . mysqli_connect_error());
-			return False;
-		}
-		return $connection;
+	private function connectToDB(){
+		$conn = new mysqli("localhost", "root", "", "everydayart");
+		$conn->set_charset('utf8');
 		
+		if($conn->connect_errno){
+			die("ERROR " . $conn->connect_error);
+		}
+		return $conn;
 	}
 	
 	public function authenticateUser(UserDTO $udto)
@@ -48,38 +46,16 @@ class RegisterDAO {
 		$totalPoints = $udto->getTotal();
 		$currentPoints = $udto->getCurrent();
 		
+		$query = "INSERT INTO user (userName, password, name, address, phone, email) 
+		VALUES ('$user', '$pass', '$name', '$address', '$phone', '$email')";
 		
-		$query = "INSERT
-INTO
-  `user`(
-    `userName`,
-    `password`,
-    `name`,
-    `address`,
-    `phone`,
-    `email`,
-    `rank`,
-    `totalPoints`,
-    `currentPoints`
-  )
-VALUES(
-  $user,
-  $pass,
-  $name,
-  $address,
-  $phone,
-  $email,
-  $rank,
-  $totalPoints,
-  $currentPoints,
-)";
-		
-		if (mysqli_query($conn,$query)){
-			return True;
+		if(!$conn->query($query) === true){
+			echo "Fail" . $conn->errno . "==" . $conn->error;
 		}
 		else{
-			return False;
+			echo "ERROR2";
 		}
+		
 		$conn->close();
 	}
 	
