@@ -1,0 +1,34 @@
+Behavioral Patterns
+  1. Chain of Responsibility
+  2. Iterator
+
+Structural Patterns
+  1. Facade
+  2. Flyweight
+  3. Adapter
+
+RESPONSIBILITY: List <Components> [RES > PONSI > BILITY ]
+
+(CAR BUILDING RESPONSIBILITY):  CHASIS > ENGINE > ACCESORIES > BODY
+
+  Create your List of Components using abstract classes/interfaces.
+      Abstract class only contains getVertices() method.
+
+  List <Components> components = new ReqHandler().processReq(req);
+    for(C:components){
+      render(c.getVertices())
+      if(c.type == engine){
+        c.getClass().start();
+      }
+    }
+
+
+class ReqHandler{
+  reqHandler(){
+    this.component1 = comp1();
+    c1.c = comp2();
+    c1.cc = comp3();
+  }
+
+  function
+}

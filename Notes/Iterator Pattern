@@ -1,0 +1,28 @@
+List <Integer> intList = new ArrayList<Integer>();
+ [ArrayLists have .add() & .get() methods]
+  intList.add(5);
+  intList.add(7);
+  intList.add(9);
+  intList.add(8);
+
+  Iterator it = intList.iterator();
+
+Iterator
+while(it.hasnext()){
+  it.next();
+}
+
+  userChoice = IU.getChannel(Type Channel)
+  for(int i=0; i < channelList.size()l i++){
+    c = channelList.get(i);
+    if(userChoice == c.type){
+      cMenu.add(c);
+    }else if(userChoice == 'All'){
+      cMenu.add(c);
+    }
+  }
+
+it = ChannelList.iterator(userChoice)
+while(it.hasNext()){
+  cMenu.add(it.next());
+}
