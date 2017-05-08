@@ -1,15 +1,11 @@
-* {
-  border: none;
-  margin:0;
-  padding:0;
-}
-
 html{
 	height:100%;
 }
 body{
-	background-image:-webkit-linear-gradient(yellow 25%, red 70%, 
-black);
+	background-image:-webkit-linear-gradient(cyan 25%, white 70%, 
+green);
+	margin:right;
+	padding:auto;
 }
 
 header{
@@ -22,13 +18,115 @@ h1{
 	text-align:left;
 }
 
+.toppage {
+    height: 92px;
+    background-color:white;
+    border: 1px white;
+    border-radius:8px;
+    opacity: 99;
+}
+.leftpage {
+    width: 178px;
+    height:100%; 
+    background-color:white;
+    border: 1px white;
+    border-radius:8px;
+    opacity: 99;	
+    float:left;
+}
+.mainpage {
+  margin-left:178px;
+  background-color:white;
+    border: 1px white;
+    border-radius:0px;
+    opacity: 0.9;
+ }
+
+.left{
+	position: relative;
+	border: 2px solid black;
+	border-radius: 8px;
+	width: 200px;
+	heigh: 200px;
+	margin-left:25px;
+	margin-right:25px;
+	margin-bottom:10px;
+	float: left;
+	
+	
+}
+.right{
+	position: relative;
+	width: 200px;
+	heigh: 200px;
+	margin-left:25px;
+	margin-right:25px;
+	margin-bottom:10px;
+	float: right;
+	
+	
+}
+.hr {
+	display: block;
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+	margin-left: auto;
+	margin-right: auto;
+	border-style: inset;
+	border-width: 2px;
+}
+.rr {
+	color: #00ff00;
+}
+
+.imgdescription {
+	position: absolute;
+	top: 0;
+  	bottom: 0;
+  	left: 0;
+  	right: 0;
+	text-align:center;
+  	background: rgba(222, 222, 222, 0.72);
+  	color: #;
+  	visibility: hidden;
+  	opacity: 0;
+}
+
+.left:hover .imgdescription {
+	visibility: visible;
+	opacity: 1;
+}
+.right:hover .imgdescription {
+	visibility: visible;
+	opacity: 1;
+}
+
+.container {
+	border: 2px solid black;
+	background-color: orange;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.border {
+	background-color:#;
+	border: 1px solid black;
+	border-radius:8px;
+}
+
+
+
+
 #logIn{
 	color:green;
 	text-align:right;
 }
 
 fieldset{
-	margin-right:800px;
+	display:inline-block;
+	margin-right:5px;
 }
 
 body{
@@ -43,6 +141,9 @@ body{
 	margin-top:75px;
 	width: 100px;
 }
+
+
+
 
 
 
@@ -70,4 +171,90 @@ body{
 #createButton:hover{
 	background-color: yellow;
 	color:red;
+}
+
+#myImg {
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#myImg:hover {opacity: 0.7;}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+/* Modal Content (image) */
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+}
+
+/* Caption of Modal Image */
+#caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+}
+
+/* Add Animation */
+.modal-content, #caption {    
+    -webkit-animation-name: zoom;
+    -webkit-animation-duration: 0.6s;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+    from {-webkit-transform:scale(0)} 
+    to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+    from {transform:scale(0)} 
+    to {transform:scale(1)}
+}
+
+/* The Close Button */
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+    .modal-content {
+        width: 100%;
+    }
 }

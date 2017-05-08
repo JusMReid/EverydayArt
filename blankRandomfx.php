@@ -13,7 +13,7 @@ if(mysqli_connect_error()) {
 	echo "failed to connect" . mysqli_connect_error();
 }
 include("AddtoDatabase.php");
-session_start();
+
 	//fetch adj
 $var1 = rand(0,$_SESSION['acount']);
 $aresult = mysqli_query($conn, "Select aresult from adjblank where adj_id = '$var1'");
@@ -33,11 +33,11 @@ $row = mysqli_fetch_array($vresult);
 $verb = $row['vresult'];
 
 
-session_write_close();
+
 //create result and echo across screen
 $result = " " . $adj . " " . $noun . " " . $verb;
 echo $result;
-session_start();
+
 $_SESSION['result'] = "$result";
 }
 public function getResult() {

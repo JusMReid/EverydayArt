@@ -1,7 +1,5 @@
-
 <?php 
-
-public class UserDTO {
+class UserDTO {
 	protected $userId;
 	protected $userName;
 	protected $password;
@@ -13,22 +11,20 @@ public class UserDTO {
     protected $totalPoints;
     protected $currentPoints;
     protected $friends = array();
-
-    public function __construct($id, $userName, $password)
+	public function __construct($id, $userName, $password, $name, $address, $phone, $email)
     {
         $this->id = $id;
         $this->userName = $userName;
         $this->password = $password;
-        $this->name = NULL;
-        $this->address = NULL;
-        $this->phone = NULL;
-        $this->email = NULL;
+        $this->name = $name;
+        $this->address = $address;
+        $this->phone = $phone;
+        $this->email = $email;
         $this->rank = NULL;
         $this->totalPoints = NULL;
         $this->currentPoints = NULL;
         
     }
-
 	public function setId($id) 
 	{
         $this->id = $id;
@@ -38,7 +34,6 @@ public class UserDTO {
     {
         return $this->id;
     }
-
     public function setUserName($userName) 
     {
         $this->userName = $userName;
@@ -46,9 +41,8 @@ public class UserDTO {
     
     public function getUserName() 
     {
-        return $userName->userName;
+        return $this->userName;
     }
-
     public function setPassword($password) 
     {
         $this->password = $password;
@@ -62,51 +56,42 @@ public class UserDTO {
     { 
         $this->name = $name;  
     }
-
     public function get_name() 
     {
         return $this->name;
     }
-
     public function set_address($address)
     {
         $this->address = $address;
     }
-
     public function get_address()
     {
         return $this->address;
     }
-
     public function set_phone($phone)
     {
         $this->phone = $phone;
     }
-
     public function get_phone()
     {
         return $this->phone;
     }
-
     public function set_email($email)
     {
         $this->email = $email;
     }
-
     public function get_email()
     {
-        return $this->email
+        return $this->email;
     }
     public function setRank($rank)
     {
         $this->rank = $rank;
     }
-
     public function getRank()
     {
         return $this->rank;
     }
-
     public function setTotal($totalPoints)
     {
         $this->totalPoints = $totalPoints;
@@ -124,5 +109,4 @@ public class UserDTO {
         return $this->currentPoints;
     }
 }
-
 ?>

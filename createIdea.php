@@ -10,30 +10,40 @@
 	</head>
 	<body>
 		<header>
-			<a onClick="location.href='index.html'"><h1>EveryDay Art<sup> &trade;</sup></h1></a>
+			<a onClick="location.href='index.php'"><h1>EveryDay Art<sup> &trade;</sup></h1></a>
 			<div id="logIn">
-				<a href="logIn.html" target="_blank" 
-					title="Log-In">Log-In</button>
-				</a>|
-				<a href="register.html" target="_blank" 
-					title="Join EveryDay Art &trade;">
-				Join</a>
-				<form action = "searchResult.php" method = "submit">
-				<input type="text" name="keyword" placeholder= "Search for...">
-				<button id="" onClick="location.href='searchResult.php'">Search</button></form>
+			<?php session_start();
+			if( $_SESSION["isloggedin"] === True){
+			echo "Hello " .  "<a onclick=location.href='myProfile.php'>" . $_SESSION["user"] . "</a>. ";
+			echo "<button id='logout' onClick=location.href='logoutload.php'>Logout</button>";
+			echo "<form action = 'searchResult.php' method = 'submit'>
+				<input type='text' name='keyword' placeholder= 'Search for...'>
+				<button id='' onClick='location.href='searchResult.php''>Search</button></form>
 			</div>
-		</header>
+		</header>"; 
+			}
+			else {
+			echo "<a href='renderLogin.php' target='_blank' 
+					title='Log-In'>Log-In</button>
+				</a>|
+				<a href='renderRegister.php' target='_blank' 
+					title='Join EveryDay Art &trade;'>
+				Join</a>
+				<form action = 'searchResult.php' method = 'submit'>
+				<input type='text' name='keyword' placeholder= 'Search for...'>
+				<button id='' onClick='location.href='searchResult.php''>Search</button></form>
+			</div>
+		</header>"; 
+			} ?>
 			<div id="selectChallengeMenu">
 			<h2> <center>Your creation is:
 			<h1><center>
 					<?php
-		session_start();
 		echo $_SESSION['result'];
 		?>
 		</h1>
 		<h5>
 		<form enctype="multipart/form-data" action="img_db.php" method="POST">
-		Image Title: <input type="text" name="img_title" /><br /><br />
 		Image Description: <?php echo $_SESSION['result']; ?> <br /><br />
 		Choose a file to upload: <input name="uploadedfile" type="file" /><br /><br />
 		<input name="submit" type="submit" value="submit" />

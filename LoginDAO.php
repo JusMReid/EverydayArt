@@ -1,31 +1,46 @@
 <?php
-
-
-public class LoginDAO {
-
+class LoginDAO {
 	
-	public function authenticateUser(UserDTO $udto)
+	private function connectToDb()
 	{
-		$conn = connectToDb();
-
-		$query = "SELECT `userName` , `password` From `users`
-		WHERE `userName` = `$udto->getName()` AND `password` = `$udto->getPassword()`";
-		$result = $conn->query($query) or die($conn->error.__LINE__);
-		if (!$result || mysqli_num_rows($result) <= 0)
+		$connection = mysqli_connect("localhost", "root", "", "everydayart");
+		if (mysqli_connect_error())
 		{
+			die("Connection Failed: " . mysqli_connect_error());
 			return False;
 		}
-		else 
-		{
-			return True;
-		}	
+		return $connection;
+		
+	}
+	
+	public function test(){
+		echo "Hello";
+	}
+	public function authenticateUser(UserDTO $udto)
+	{
+		$conn = $this->connectToDb();
+		$name = $udto->getUserName();
+		$pas = $udto->getPassword();
+		#$query = "SELECT `userName` , `password` FROM `user`
+		#WHERE `userName` =  '$name` AND `password` = `$pas`";
+		if($conn->connect_errno){
+			die("ERROR:" . $conn->connect_error);
+		}
+		$query = "SELECT userName , password FROM user WHERE userName = '$name'
+		AND password = '$pas'";
+		$result = $conn->query($query);
 		$conn->close();
+		if(!$result || $result->num_rows <= 0){
+			return false;
+		}
+		else{
+			return true;
+		}
 	}
 	public function insertLoginInfo(UserDTO $udto)
 	{
 		$conn = connectToDb();
-
-		$query = "INSERT INTO users (userName, password)
+		$query = "INSERT INTO user (userName, password)
 		VALUES ($udto->getUserName(), $udto->getPassword())";
 		if ($conn->query($query) == TRUE) 
 		{
@@ -35,14 +50,12 @@ public class LoginDAO {
 		{
 			return False;
 		}
-
 		$conn->close();
 	}
 	public function deleteLoginInfo(UserDTO $udto)
 	{
 		$conn = connectToDb();
-
-		$conn = "DELETE FROM users
+		$conn = "DELETE FROM user
 		WHERE userId = $this->getUserId($udto)->getId()";
 		if ($conn->query($conn) == TRUE) 
 		{
@@ -52,16 +65,13 @@ public class LoginDAO {
 		{
 			return False;
 		}
-
 		$conn->close();
 	}
-	public function getUserId(UserDTO udto)
+	public function getUserId(UserDTO $udto)
 	{
-
 		$conn = connectToDB();
-
 		$idDTO =  new UserDTO();
-		$conn->query("SELECT userId FROM users
+		$conn->query("SELECT userId FROM user
 		WHERE userName = $udto->getName();");
 		if (!$conn) 
 		{
@@ -69,38 +79,33 @@ public class LoginDAO {
 		}	
     		
 		$row = mysqli_fetch_row($conn);
-		$idDTO->setID($row[0])
-		return $idDTO;
+		$idDTO->setID($row[0]);
 		$conn->close();
-
-
-
+		return $idDTO;
 	}		
 	public function updateUser(UserDTO $udto)
 	{
 		$conn = connectToDb();
 		
-		$userID = udto->getUserID();
+		$userID = $udto->getUserID();
 		$status = "Update USER set ";
 		$passfield = false;
-		if(udto->getPassword()!=NULL)
+		if($udto->getPassword()!=NULL)
 		{
-			status = "password = " + udto->getPassword() + " ";
-			passfield = true;
+			$status = "password = " + $udto->getPassword() + " ";
+			$passfield = true;
 		}
-		if(udto->getName() != NULL)
+		if($udto->getName() != NULL)
 		{
 			
 		}
-	public function ValidateLogin(LoginDTO ldto)
+	}
+	public function ValidateLogin(LoginDTO $ldto)
 	{
 		$conn = connectToDB();
-
-
-		$conn->query("SELECT userId FROM users
-		WHERE username =  $ldto->getName());");
+		$conn->query("SELECT userId FROM user
+		WHERE username =  $ldto->getName();");
 		
-
 		if($conn->query($conn) == TRUE)
 		{
 			return True;
@@ -109,23 +114,9 @@ public class LoginDAO {
 		{
 			return False;
 		}
-
 		
 		$conn->close();
-
-
-
-				
-	private function connectToDb()
-	{
-		$db = new mysqli("localhost", "root", "", "login");
-		if ($db->connect_error)
-		{
-			die("Connection Failed: " . $db->connect_error);
-		}
-		
 	}
 	
 }
-
 ?>

@@ -117,17 +117,17 @@ $a = $a-1;
 $n = $n-1;
 $v = $v-1;
 
-session_start();
+
 $_SESSION['acount'] = "$a";
-session_write_close();
 
-session_start();
+
+
 $_SESSION['ncount'] = "$n";
-session_write_close();
 
-session_start();
+
+
 $_SESSION['vcount'] = "$v";
-session_write_close();
+
 }
 
 

@@ -13,9 +13,10 @@
 			<a onClick="location.href='index.php'"><h1>EveryDay Art<sup> &trade;</sup></h1></a>
 			<div id="logIn">
 			<?php session_start();
-			if( $_SESSION["isloggedin"] = True){
+			error_reporting(0);
+			if( $_SESSION["isloggedin"] === True){
 			echo "Hello " .  "<a onclick=location.href='myProfile.php'>" . $_SESSION["user"] . "</a>. ";
-			echo "<button id='logout' onClick=location.href='renderLogin.php'>Logout</button>";
+			echo "<button id='logout' onClick=location.href='logoutload.php'>Logout</button>";
 			echo "<form action = 'searchResult.php' method = 'submit'>
 				<input type='text' name='keyword' placeholder= 'Search for...'>
 				<button id='' onClick='location.href='searchResult.php''>Search</button></form>
@@ -34,13 +35,19 @@
 				<button id='' onClick='location.href='searchResult.php''>Search</button></form>
 			</div>
 		</header>"; 
-			}
- echo "<div class='container'>
-	<a onClick=location.href='CreationHub.html'><div class='one col'>Create</div></a>
+			} ?>
+ <div class='container'>
+	<a onClick=location.href='CreationHub.php'><div class='one col'>Create</div></a>
 	<a onclick=location.href='PollSelection.php'><div class='two col even'>Polls</div>
 	<a onclick=location.href='UserSearch.php'><div class='three col'>Profiles</div>
-	<a onclick=location.href='shopDisplay.php'><div class='four col even'>Store</div>
+	<?php if( $_SESSION["isloggedin"] === True) {
+	echo "<a onclick=location.href='shopDisplay.php'><div class='four col even'>Store</div>";
+	}
+	else {
+		echo "<a onclick=location.href='renderLogin.php'><div class='four col even'>Store</div>";
+	}
+	?>
 	</div>
 	</body>
-	</html>";
-	?>
+	</html>
+	

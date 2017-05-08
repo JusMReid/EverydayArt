@@ -32,7 +32,6 @@ $verb = $row['vresult'];
 
 $result = $adj . " " . $noun . " " . $verb;
 echo $result;
-session_start();
 $_SESSION['result'] = "$result";
 
 }
